@@ -8,7 +8,7 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { delay, mergeMap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 import { ITodo } from '../models/todo';
 
 @Injectable()
@@ -124,7 +124,6 @@ export class MockBackendForTesting implements HttpInterceptor {
           );
         },
       ),
-      delay(200),
     );
   }
 }

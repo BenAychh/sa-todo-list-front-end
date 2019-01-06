@@ -82,7 +82,7 @@ describe('TodoService', () => {
         const expected: ITodo = {
           complete: false,
           description: 'new todo three description',
-          id: 1,
+          id: 3,
         };
 
         expect(todos[0]).toEqual(expected);
