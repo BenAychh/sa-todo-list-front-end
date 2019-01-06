@@ -1,1 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'reset';
+@import 'variables';
+
+body {
+  font-family: Sans-Serif;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: [top] $header-height [content] 1fr [menu] $menu-height;
+  grid-template-columns: [left] $left-width 1fr $right-width [right];
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+header {
+  grid-row: top / span 1;
+  background-color: $dark;
+  grid-column: left / right;
+  text-align: center;
+  line-height: $header-height;
+  color: $accent1;
+  font-size: 2rem;
+}
+
+app-todos {
+  background-color: $light;
+  grid-column: left / right;
+  grid-row: content / span 1;
+}
+
+.menu {
+  grid-row: menu / span 1;
+  background-color: $accent2;
+  line-height: $menu-height;
+  text-align: center;
+  font-size: 2rem;
+  color: $dark;
+}
+
+@media screen and (min-width: $break-point) {
+  .container {
+    grid-template-rows: [top] $header-height [menu] $menu-height [content] 1fr;
+    max-width: $break-point;
+    padding-top: $header-height;
+    padding-bottom: $menu-height;
+  }
+
+  header {
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  app-todos {
+    border-radius: 0 0 1rem 1rem;
+  }
+}
