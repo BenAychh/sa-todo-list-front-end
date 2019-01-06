@@ -1,17 +1,14 @@
-import * as minimist from 'minimist';
-
 class Config {
   private defaultUrl = 'http://localhost:4200';
 
   private _baseUrl: string;
-  private _args: Record<string, string>;
 
   constructor() {
-    this._args = minimist(process.argv.slice(2));
-    this._baseUrl = this._args.baseUrl || this.defaultUrl;
+    this._baseUrl = process.env.TODO_BASE_URL || this.defaultUrl;
   }
 
   get baseUrl() {
+    console.log(this._baseUrl);
     return this._baseUrl;
   }
 }

@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "sa-todo-list",
+    "staging": "sa-todo-list-staging"
+  }
+}

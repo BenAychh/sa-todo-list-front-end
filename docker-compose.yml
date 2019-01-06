@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  postgresdb-fe:
+    image: postgres:11.1
+    environment:
+      - POSTGRES_PASSWORD=secret
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  api-fe:
+    image: gcr.io/sa-todo-list/todo-api:latest
+    links:
+      - postgresdb-fe
+    depends_on:
+      - postgresdb-fe
+    ports:
+      - 8080:8000
+    environment:
+      - DB_HOST=postgresdb-fe
+      - DB_PORT=5432
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=secret
+      - DB_SSL_MODE=disable
+      - SERVER_PORT=8000
+  app:
+    image: nginx:alpine
+    depends_on:
+      - api-fe
+    volumes:
+      - ./dist/sa-todo-list-front-end:/usr/share/nginx/html
+    ports:
+      - 4201:80
