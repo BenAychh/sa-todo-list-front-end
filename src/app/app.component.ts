@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
+  styleUrls: ['./app.component.scss'],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'sa-todo-list-front-end';
