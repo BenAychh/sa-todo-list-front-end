@@ -80,6 +80,6 @@
     "directive-class-suffix": true,
     "max-classes-per-file": false,
     "no-submodule-imports": false,
-    "no-implicit-dependencies": [true, ["testcafe"]]
+    "no-implicit-dependencies": [true, ["testcafe", "minimist"]]
   }
 }
