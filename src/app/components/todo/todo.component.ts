@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { ITodo } from '../../models/todo';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,11 +14,19 @@ export class TodoComponent implements OnInit {
 
   showActions = false;
 
-  constructor() {}
+  constructor(private todoService: TodoService) {}
 
   ngOnInit() {}
 
   toggleActions() {
     this.showActions = !this.showActions;
+  }
+
+  deleteTodo() {
+    this.todoService.deleteTodo(this.todo.id);
+  }
+
+  toggleTodoCompletion() {
+    this.todoService.toggleComplete(this.todo.id);
   }
 }

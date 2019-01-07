@@ -1,6 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ITodo } from '../../models/todo';
+import { mockBackendForTestingProvider } from '../../services/mockBackend';
+import { TodoService } from '../../services/todo.service';
 import { TodoComponent } from './todo.component';
 
 @Component({
@@ -19,11 +22,15 @@ export class MockTestComponent {
 describe('TodoComponent', () => {
   let component: MockTestComponent;
   let fixture: ComponentFixture<MockTestComponent>;
+  let service: TodoService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [MockTestComponent, TodoComponent],
+      imports: [HttpClientModule],
+      providers: [mockBackendForTestingProvider],
     }).compileComponents();
+    service = TestBed.get(TodoService);
   }));
 
   beforeEach(() => {
@@ -72,5 +79,25 @@ describe('TodoComponent', () => {
     fixture.detectChanges();
 
     expect(description.className).toContain('completed-todo');
+  });
+
+  it('calls delete when the delete button is clicked', () => {
+    const ne: HTMLElement = fixture.nativeElement;
+    const del: HTMLElement = ne.querySelector('.todo-delete');
+    spyOn(service, 'deleteTodo');
+
+    del.click();
+
+    expect(service.deleteTodo).toHaveBeenCalledWith(1);
+  });
+
+  it('calls toggleComplete when the checkbox is clicked', () => {
+    const ne: HTMLElement = fixture.nativeElement;
+    const toggle: HTMLElement = ne.querySelector('.todo-complete');
+    spyOn(service, 'toggleComplete');
+
+    toggle.click();
+
+    expect(service.toggleComplete).toHaveBeenCalledWith(1);
   });
 });
