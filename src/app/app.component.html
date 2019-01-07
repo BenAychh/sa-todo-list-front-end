@@ -1,6 +1,6 @@
 <div class="container" [class.left-handed]="(ui$ | async).leftHanded">
   <header>
-    Todos
+    {{ headerText | async }}
     <app-network-active></app-network-active>
   </header>
   <app-todos></app-todos>

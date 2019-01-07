@@ -1,10 +1,4 @@
-<div class="lds-roller" *ngIf="(networkActive$ | async)">
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
+<div class="lds-dual-ring" [class.show-loader]="networkActive$ | async">
   <div></div>
   <div></div>
 </div>

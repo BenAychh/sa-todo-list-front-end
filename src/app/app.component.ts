@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { IUserInterface } from './models/ui';
 import { UiService } from './services/ui.service';
 
@@ -10,6 +11,17 @@ import { UiService } from './services/ui.service';
 })
 export class AppComponent implements OnInit {
   ui$: Observable<IUserInterface>;
+
+  get headerText(): Observable<string> {
+    return this.ui$.pipe(
+      map((ui) => {
+        if (ui.showCompleted) {
+          return 'All Todos';
+        }
+        return 'Incomplete Todos';
+      }),
+    );
+  }
 
   constructor(private uiService: UiService) {}
 
