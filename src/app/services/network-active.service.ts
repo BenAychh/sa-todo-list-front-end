@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class NetworkActiveService {
   private _active = new BehaviorSubject<boolean>(false);
 
-  get active() {
+  get active$() {
     return this._active.asObservable();
   }
 

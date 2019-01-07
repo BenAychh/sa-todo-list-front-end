@@ -14,14 +14,14 @@ describe('NetworkActiveService', () => {
   });
 
   it('should start false', () => {
-    service.active.subscribe((active) => {
+    service.active$.subscribe((active) => {
       expect(active).toBe(false);
     });
   });
 
   it('can flip network active to true', () => {
     service.networkActive();
-    service.active.subscribe((active) => {
+    service.active$.subscribe((active) => {
       expect(active).toBe(true);
     });
   });
@@ -29,7 +29,7 @@ describe('NetworkActiveService', () => {
   it('can flip network back to false', () => {
     service.networkActive();
     service.networkInactive();
-    service.active.subscribe((active) => {
+    service.active$.subscribe((active) => {
       expect(active).toBe(false);
     });
   });

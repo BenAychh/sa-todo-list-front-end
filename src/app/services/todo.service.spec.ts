@@ -20,13 +20,13 @@ describe('TodoService', () => {
 
   describe('constructor', () => {
     it('Loads the list of todos on start', async(() => {
-      service.todos.subscribe((todos) => {
+      service.todos$.subscribe((todos) => {
         expect(todos.length).toEqual(3);
       });
     }));
 
     it('Orders the todos by incomplete, complete then id in descending order', async(() => {
-      service.todos.subscribe((todos) => {
+      service.todos$.subscribe((todos) => {
         const expected = [3, 2, 1];
         const actual = todos.map((todo) => todo.id);
         expect(actual).toEqual(expected);
@@ -37,7 +37,7 @@ describe('TodoService', () => {
   describe('createTodo', () => {
     it('creates the todo and adds it to the list', async(() => {
       service.createTodo('todo four');
-      service.todos.subscribe((todos) => {
+      service.todos$.subscribe((todos) => {
         const expected: ITodo = {
           complete: false,
           description: 'todo four',
@@ -52,7 +52,7 @@ describe('TodoService', () => {
   describe('toggleComplete', () => {
     it('can switch an incomplete todo to complete', async(() => {
       service.toggleComplete(1);
-      service.todos.subscribe((todos) => {
+      service.todos$.subscribe((todos) => {
         const expected: ITodo = {
           complete: true,
           description: 'todo one',
@@ -64,7 +64,7 @@ describe('TodoService', () => {
 
     it('can switch a complete todo to incomplete', async(() => {
       service.toggleComplete(2);
-      service.todos.subscribe((todos) => {
+      service.todos$.subscribe((todos) => {
         const expected: ITodo = {
           complete: false,
           description: 'todo two',
@@ -78,7 +78,7 @@ describe('TodoService', () => {
   describe('updateDescription', () => {
     it('can update the description to a todo', async(() => {
       service.updateDescription(3, 'new todo three description');
-      service.todos.subscribe((todos) => {
+      service.todos$.subscribe((todos) => {
         const expected: ITodo = {
           complete: false,
           description: 'new todo three description',
@@ -93,7 +93,7 @@ describe('TodoService', () => {
   describe('deleteTodo', () => {
     it('can delete a todo', async(() => {
       service.deleteTodo(1);
-      service.todos.subscribe((todos) => {
+      service.todos$.subscribe((todos) => {
         const expected: ITodo[] = [
           {
             complete: false,

@@ -16,7 +16,7 @@ export class TodosComponent implements OnInit {
   constructor(private todoService: TodoService, private uiService: UiService) {}
 
   ngOnInit() {
-    this.todos$ = combineLatest(this.todoService.todos, this.uiService.ui).pipe(
+    this.todos$ = combineLatest(this.todoService.todos$, this.uiService.ui$).pipe(
       map(([todos, ui]) => {
         if (ui.showCompleted) {
           return todos;

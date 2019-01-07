@@ -13,7 +13,7 @@ export class TodoService {
 
   private _todos = new BehaviorSubject<ITodo[]>([]);
 
-  get todos() {
+  get todos$() {
     return this._todos.asObservable();
   }
 

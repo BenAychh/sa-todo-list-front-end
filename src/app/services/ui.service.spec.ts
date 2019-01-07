@@ -12,7 +12,7 @@ describe('UiService', () => {
     spyOn(localStorage, 'getItem').and.returnValues(null, null);
     TestBed.configureTestingModule({});
     const service: UiService = TestBed.get(UiService);
-    service.ui.subscribe((ui) => {
+    service.ui$.subscribe((ui) => {
       expect(ui).toEqual({ leftHanded: false, showCompleted: true });
     });
   });
@@ -21,7 +21,7 @@ describe('UiService', () => {
     spyOn(localStorage, 'getItem').and.returnValues('true', null);
     TestBed.configureTestingModule({});
     const service: UiService = TestBed.get(UiService);
-    service.ui.subscribe((ui) => {
+    service.ui$.subscribe((ui) => {
       expect(ui).toEqual({ leftHanded: true, showCompleted: true });
     });
   });
@@ -30,7 +30,7 @@ describe('UiService', () => {
     spyOn(localStorage, 'getItem').and.returnValues('false', null);
     TestBed.configureTestingModule({});
     const service: UiService = TestBed.get(UiService);
-    service.ui.subscribe((ui) => {
+    service.ui$.subscribe((ui) => {
       expect(ui).toEqual({ leftHanded: false, showCompleted: true });
     });
   });
@@ -47,7 +47,7 @@ describe('UiService', () => {
     spyOn(localStorage, 'getItem').and.returnValues(null, 'false');
     TestBed.configureTestingModule({});
     const service: UiService = TestBed.get(UiService);
-    service.ui.subscribe((ui) => {
+    service.ui$.subscribe((ui) => {
       expect(ui).toEqual({ leftHanded: false, showCompleted: false });
     });
   });
@@ -56,7 +56,7 @@ describe('UiService', () => {
     spyOn(localStorage, 'getItem').and.returnValues(null, 'true');
     TestBed.configureTestingModule({});
     const service: UiService = TestBed.get(UiService);
-    service.ui.subscribe((ui) => {
+    service.ui$.subscribe((ui) => {
       expect(ui).toEqual({ leftHanded: false, showCompleted: true });
     });
   });
@@ -74,7 +74,7 @@ describe('UiService', () => {
     TestBed.configureTestingModule({});
     const service: UiService = TestBed.get(UiService);
     service.setLeftHanded(true);
-    service.ui.subscribe((ui) => {
+    service.ui$.subscribe((ui) => {
       expect(ui).toEqual({ leftHanded: true, showCompleted: true });
     });
   });
@@ -92,7 +92,7 @@ describe('UiService', () => {
     TestBed.configureTestingModule({});
     const service: UiService = TestBed.get(UiService);
     service.setShowCompleted(false);
-    service.ui.subscribe((ui) => {
+    service.ui$.subscribe((ui) => {
       expect(ui).toEqual({ leftHanded: false, showCompleted: false });
     });
   });

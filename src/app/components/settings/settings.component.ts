@@ -17,7 +17,7 @@ export class SettingsComponent implements OnInit {
   constructor(private uiService: UiService, private ngxSmartModalService: NgxSmartModalService) {}
 
   ngOnInit() {
-    this.ui$ = this.uiService.ui;
+    this.ui$ = this.uiService.ui$;
   }
 
   openSettings() {

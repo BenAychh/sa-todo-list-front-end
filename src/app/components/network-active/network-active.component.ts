@@ -13,6 +13,6 @@ export class NetworkActiveComponent implements OnInit {
   constructor(private networkActiveService: NetworkActiveService) {}
 
   ngOnInit() {
-    this.networkActive$ = this.networkActiveService.active;
+    this.networkActive$ = this.networkActiveService.active$;
   }
 }

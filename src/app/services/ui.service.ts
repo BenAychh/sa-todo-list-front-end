@@ -10,7 +10,7 @@ export class UiService {
   SHOW_COMPLETED = 'show-completed';
   private _ui: BehaviorSubject<IUserInterface>;
 
-  get ui() {
+  get ui$() {
     return this._ui.asObservable();
   }
 
