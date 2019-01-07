@@ -5,11 +5,6 @@ services:
     image: postgres:11.1
     environment:
       - POSTGRES_PASSWORD=secret
-    healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U postgres']
-      interval: 10s
-      timeout: 5s
-      retries: 5
   api-fe:
     image: gcr.io/sa-todo-list/todo-api:latest
     links:
@@ -17,7 +12,7 @@ services:
     depends_on:
       - postgresdb-fe
     ports:
-      - 8080:8000
+      - 8001:8000
     environment:
       - DB_HOST=postgresdb-fe
       - DB_PORT=5432
@@ -26,11 +21,11 @@ services:
       - DB_PASSWORD=secret
       - DB_SSL_MODE=disable
       - SERVER_PORT=8000
+      - CORS_ORIGINS=http://localhost:4201
   app:
-    image: nginx:alpine
+    build:
+      context: .
     depends_on:
       - api-fe
-    volumes:
-      - ./dist/sa-todo-list-front-end:/usr/share/nginx/html
     ports:
       - 4201:80
