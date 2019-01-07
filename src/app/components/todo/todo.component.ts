@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { NgxSmartModalService } from 'ngx-smart-modal';
 import { ITodo } from '../../models/todo';
 import { TodoService } from '../../services/todo.service';
 
@@ -9,12 +10,14 @@ import { TodoService } from '../../services/todo.service';
   templateUrl: './todo.component.html',
 })
 export class TodoComponent implements OnInit {
+  newDescription: string;
+
   @Input()
   todo: ITodo;
 
   showActions = false;
 
-  constructor(private todoService: TodoService) {}
+  constructor(private todoService: TodoService, public ngxSmartModalService: NgxSmartModalService) {}
 
   ngOnInit() {}
 
@@ -27,6 +30,18 @@ export class TodoComponent implements OnInit {
   }
 
   toggleTodoCompletion() {
+    this.showActions = false;
     this.todoService.toggleComplete(this.todo.id);
+  }
+
+  startEditing() {
+    this.newDescription = this.todo.description;
+    this.ngxSmartModalService.get(`edit_${this.todo.id}`).open();
+  }
+
+  commitChange() {
+    this.showActions = false;
+    this.todoService.updateDescription(this.todo.id, this.newDescription);
+    this.ngxSmartModalService.get(`edit_${this.todo.id}`).close();
   }
 }

@@ -64,8 +64,6 @@ export class TodoService {
       .sort()
       .reverse()
       .map((key) => ({ ...this.todoMap[key] }));
-    const incompleteTodos = todosSortedByIdDesc.filter((t) => !t.complete);
-    const completeTodos = todosSortedByIdDesc.filter((t) => t.complete);
-    this._todos.next([...incompleteTodos, ...completeTodos]);
+    this._todos.next(todosSortedByIdDesc);
   }
 }

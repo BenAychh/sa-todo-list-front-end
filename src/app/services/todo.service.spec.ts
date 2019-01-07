@@ -27,7 +27,7 @@ describe('TodoService', () => {
 
     it('Orders the todos by incomplete, complete then id in descending order', async(() => {
       service.todos.subscribe((todos) => {
-        const expected = [3, 1, 2];
+        const expected = [3, 2, 1];
         const actual = todos.map((todo) => todo.id);
         expect(actual).toEqual(expected);
       });

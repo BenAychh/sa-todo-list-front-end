@@ -1,9 +1,11 @@
 @import 'reset';
+@import '~ngx-smart-modal/ngx-smart-modal';
 @import 'variables';
 
 body {
   font-family: Sans-Serif;
   overflow: hidden;
+  font-size: 18px;
 }
 
 .container {
@@ -39,6 +41,43 @@ app-todos {
   text-align: center;
   font-size: 2rem;
   color: $dark;
+}
+
+.modal-customized {
+  max-width: $break-point;
+
+  input {
+    width: 100%;
+    display: block;
+    margin: 2rem auto;
+    line-height: 2rem;
+    font-size: 1.5rem;
+    padding: 0.3rem;
+    box-sizing: border-box;
+    border-radius: 0.2rem;
+    border: 1px solid $dark;
+  }
+
+  .action {
+    display: block;
+    cursor: pointer;
+    padding: 0 1em;
+    margin: 0 auto;
+    background: $go;
+    height: $todo-height;
+    color: black;
+    margin: 0 auto;
+
+    i {
+      line-height: $todo-height;
+    }
+
+    span {
+      line-height: $todo-height;
+      font-size: 1.5em;
+      padding-left: 1em;
+    }
+  }
 }
 
 @media screen and (min-width: $break-point) {

@@ -1,6 +1,8 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { ITodo } from '../../models/todo';
 import { mockBackendForTestingProvider } from '../../services/mockBackend';
 import { TodoService } from '../../services/todo.service';
@@ -27,7 +29,7 @@ describe('TodoComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [MockTestComponent, TodoComponent],
-      imports: [HttpClientModule],
+      imports: [HttpClientModule, NgxSmartModalModule.forRoot(), FormsModule],
       providers: [mockBackendForTestingProvider],
     }).compileComponents();
     service = TestBed.get(TodoService);
