@@ -9,6 +9,7 @@ describe('UiService', () => {
   });
 
   it('defaults to false for leftHanded and true for showCompleted', () => {
+    spyOn(localStorage, 'getItem').and.returnValues(null, null);
     TestBed.configureTestingModule({});
     const service: UiService = TestBed.get(UiService);
     service.ui.subscribe((ui) => {
