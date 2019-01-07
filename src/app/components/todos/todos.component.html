@@ -1,1 +1,3 @@
-<app-todo *ngFor="let todo of (todos$ | async); trackBy: trackByFn" [todo]="todo"></app-todo>
+<div class="todos-container">
+  <app-todo *ngFor="let todo of (todos$ | async); trackBy: trackByFn" [todo]="todo"></app-todo>
+</div>

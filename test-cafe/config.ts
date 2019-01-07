@@ -8,7 +8,6 @@ class Config {
   }
 
   get baseUrl() {
-    console.log(this._baseUrl);
     return this._baseUrl;
   }
 }
