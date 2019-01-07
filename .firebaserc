@@ -1,6 +1,5 @@
 {
   "projects": {
-    "default": "sa-todo-list",
-    "staging": "sa-todo-list-staging"
+    "default": "sa-todo-list"
   }
 }
