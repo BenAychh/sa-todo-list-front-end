@@ -1,4 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ITodo } from '../../models/todo';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -7,7 +10,14 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   templateUrl: './todos.component.html',
 })
 export class TodosComponent implements OnInit {
-  constructor() {}
+  todos$: Observable<ITodo[]>;
+  constructor(private todoService: TodoService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.todos$ = this.todoService.todos;
+  }
+
+  trackByFn(_: number, todo: ITodo) {
+    return todo.id;
+  }
 }

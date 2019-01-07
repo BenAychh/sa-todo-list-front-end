@@ -1,0 +1,7 @@
+<div class="todo-body" [class.show-actions]="showActions">
+  <i class="todo-action fa fa-2x fa-trash todo-delete"></i> <i class="todo-action fa fa-2x fa-edit todo-edit"></i>
+  <span class="todo-description" [class.completed-todo]="todo.complete" (click)="toggleActions()">{{
+    todo.description
+  }}</span>
+  <i class="todo-action fa fa-2x fa-check-square todo-complete" [class.completed-check]="todo.complete"></i>
+</div>

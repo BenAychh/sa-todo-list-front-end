@@ -1,5 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { mockBackendForTestingProvider } from '../../services/mockBackend';
+import { TodoComponent } from '../todo/todo.component';
 import { TodosComponent } from './todos.component';
 
 describe('TodosComponent', () => {
@@ -8,7 +10,9 @@ describe('TodosComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TodosComponent],
+      declarations: [TodosComponent, TodoComponent],
+      imports: [HttpClientModule],
+      providers: [mockBackendForTestingProvider],
     }).compileComponents();
   }));
 

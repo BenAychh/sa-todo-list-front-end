@@ -1,0 +1,56 @@
+@import 'variables';
+
+.todo-body {
+  display: grid;
+  grid-template-columns: $todo-height $todo-height 1fr $todo-height;
+}
+
+.todo-action {
+  line-height: $todo-height;
+  text-align: center;
+}
+
+.todo-delete {
+  background: $stop;
+}
+
+.todo-edit {
+  background: $caution;
+}
+
+.todo-complete {
+  background: $stop;
+}
+
+.todo-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $todo-height;
+}
+
+.completed-todo {
+  text-decoration: line-through;
+}
+
+.completed-check {
+  background: $go;
+}
+
+@media screen and (max-width: $break-point) {
+  .todo-action {
+    visibility: hidden;
+  }
+
+  .todo-body {
+    grid-template-columns: 0 0 1fr 0;
+
+    &.show-actions {
+      grid-template-columns: $todo-height $todo-height 1fr $todo-height;
+
+      .todo-action {
+        visibility: visible;
+      }
+    }
+  }
+}

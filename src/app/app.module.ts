@@ -2,12 +2,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { TodosComponent } from './components/todos/todos.component';
+import { components } from './components';
+import { mockBackendForTestingProvider } from './services/mockBackend';
 
 @NgModule({
   bootstrap: [AppComponent],
-  declarations: [AppComponent, TodosComponent],
+  declarations: [AppComponent, ...components],
   imports: [BrowserModule, HttpClientModule],
-  providers: [],
+  providers: [mockBackendForTestingProvider],
 })
 export class AppModule {}

@@ -1,0 +1,11 @@
+@import 'variables';
+
+app-todo {
+  height: $todo-height;
+  display: block;
+  border-bottom: 2px solid $dark;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
