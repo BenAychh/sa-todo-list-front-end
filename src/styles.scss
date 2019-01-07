@@ -16,6 +16,20 @@ body {
   height: 100vh;
   margin: 0 auto;
   box-sizing: border-box;
+
+  &.left-handed {
+    .help {
+      order: 3;
+    }
+
+    .add-todo {
+      order: 2;
+    }
+
+    .settings {
+      order: 1;
+    }
+  }
 }
 
 header {

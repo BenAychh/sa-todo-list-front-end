@@ -1,4 +1,4 @@
-<div class="todo-body" [class.show-actions]="showActions">
+<div class="todo-body" [class.show-actions]="showActions" [class.left-handed]="(ui$ | async).leftHanded">
   <i class="todo-action fa fa-2x fa-trash todo-delete" (click)="deleteTodo()"></i>
   <i class="todo-action fa fa-2x fa-edit todo-edit" (click)="startEditing()"></i>
   <span class="todo-description" [class.completed-todo]="todo.complete" (click)="toggleActions()">{{

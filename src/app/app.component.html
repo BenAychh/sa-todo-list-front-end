@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" [class.left-handed]="(ui$ | async).leftHanded">
   <header>
     Todos
     <app-network-active></app-network-active>
   </header>
   <app-todos></app-todos>
-  <div class="menu">H</div>
-  <app-add-todo class="menu"></app-add-todo>
-  <app-settings class="menu"></app-settings>
+  <div class="menu help">H</div>
+  <app-add-todo class="menu add-todo"></app-add-todo>
+  <app-settings class="menu settings"></app-settings>
 </div>

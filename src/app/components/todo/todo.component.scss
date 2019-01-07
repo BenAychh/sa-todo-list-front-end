@@ -3,6 +3,26 @@
 .todo-body {
   display: grid;
   grid-template-columns: $todo-height $todo-height 1fr $todo-height;
+
+  &.left-handed {
+    grid-template-columns: $todo-height 1fr $todo-height $todo-height;
+
+    .todo-delete {
+      order: 4;
+    }
+
+    .todo-edit {
+      order: 3;
+    }
+
+    .todo-description {
+      order: 2;
+    }
+
+    .todo-complete {
+      order: 1;
+    }
+  }
 }
 
 .todo-action {
@@ -46,8 +66,16 @@
   .todo-body {
     grid-template-columns: 0 0 1fr 0;
 
+    &.left-handed {
+      grid-template-columns: 0 1fr 0 0;
+    }
+
     &.show-actions {
       grid-template-columns: $todo-height $todo-height 1fr $todo-height;
+
+      &.left-handed {
+        grid-template-columns: $todo-height 1fr $todo-height $todo-height;
+      }
 
       .todo-action {
         visibility: visible;

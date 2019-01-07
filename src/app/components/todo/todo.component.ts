@@ -29,7 +29,7 @@ export class TodoComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.ui$ = this.uiService.ui;
+    this.ui$ = this.uiService.ui$;
   }
 
   toggleActions() {
