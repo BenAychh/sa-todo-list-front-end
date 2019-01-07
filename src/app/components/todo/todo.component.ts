@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 import { ITodo } from '../../models/todo';
 import { TodoService } from '../../services/todo.service';
@@ -10,6 +10,7 @@ import { TodoService } from '../../services/todo.service';
   templateUrl: './todo.component.html',
 })
 export class TodoComponent implements OnInit {
+  @ViewChild('input') input: ElementRef;
   newDescription: string;
 
   @Input()
@@ -37,11 +38,21 @@ export class TodoComponent implements OnInit {
   startEditing() {
     this.newDescription = this.todo.description;
     this.ngxSmartModalService.get(`edit_${this.todo.id}`).open();
+    // Force next tick
+    setTimeout(() => {
+      this.input.nativeElement.focus();
+    }, 0);
   }
 
   commitChange() {
     this.showActions = false;
     this.todoService.updateDescription(this.todo.id, this.newDescription);
     this.ngxSmartModalService.get(`edit_${this.todo.id}`).close();
+  }
+
+  onKeydown(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      this.commitChange();
+    }
   }
 }
