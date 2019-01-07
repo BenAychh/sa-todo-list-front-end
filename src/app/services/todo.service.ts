@@ -32,6 +32,7 @@ export class TodoService {
   toggleComplete(id: number) {
     this.networkActiveService.networkActive();
     const complete = !this.todoMap[id].complete;
+    console.log(config.apiUrl);
     this.http.patch(`${config.apiUrl}${id}`, { complete }).subscribe((response: { data: ITodo }) => {
       this.todoMap[response.data.id] = response.data;
       this.dispatch();
