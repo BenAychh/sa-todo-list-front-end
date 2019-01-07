@@ -26,6 +26,12 @@ header {
   line-height: $header-height;
   color: $accent1;
   font-size: 2rem;
+  position: relative;
+
+  app-network-active {
+    position: absolute;
+    right: 0;
+  }
 }
 
 app-todos {

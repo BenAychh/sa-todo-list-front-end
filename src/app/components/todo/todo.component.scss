@@ -20,7 +20,7 @@
 }
 
 .todo-complete {
-  background: $stop;
+  background: $go;
 }
 
 .todo-description {
@@ -35,7 +35,7 @@
 }
 
 .completed-check {
-  background: $go;
+  background: $stop;
 }
 
 @media screen and (max-width: $break-point) {
