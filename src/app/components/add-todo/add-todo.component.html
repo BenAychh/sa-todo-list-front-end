@@ -1,4 +1,4 @@
-<i class="fa fa fa-plus-circle add-todo" (click)="startNewTodo()"></i>
+<i class="fa fa-plus-circle add-todo" (click)="startNewTodo()"></i>
 
 <ngx-smart-modal [identifier]="TODO_MODAL_NAME" customClass="modal-customized">
   <input [(ngModel)]="newDescription" #input placeholder="What do you want to do?" (keydown)="onKeydown($event)" />

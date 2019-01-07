@@ -1,0 +1,15 @@
+<i class="fa fa-question-circle open-help" (click)="openHelp()"></i>
+
+<ngx-smart-modal [identifier]="HELP_MODAL_NAME" customClass="modal-customized">
+  <div class="help-text">
+    <p>
+      <span class="desktop-only">Click </span> <span class="mobile-only">Tap </span>
+      <i class="fa fa-plus-circle"></i> to add a new Todo
+    </p>
+    <p>
+      <span class="desktop-only">Click </span> <span class="mobile-only">Tap </span>
+      <i class="fa fa-sliders-h settings"></i> to adjust display and right/left-handed settings
+    </p>
+    <p class="mobile-only">Tap on a todo to bring up the context menu. Tap it again to dismiss the menu</p>
+  </div>
+</ngx-smart-modal>

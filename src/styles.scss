@@ -63,6 +63,10 @@ app-todos {
   color: $dark;
 }
 
+.desktop-only {
+  display: none;
+}
+
 .modal-customized {
   max-width: $break-point;
 
@@ -114,5 +118,13 @@ app-todos {
 
   app-todos {
     border-radius: 0 0 1rem 1rem;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+
+  .desktop-only {
+    display: inline;
   }
 }

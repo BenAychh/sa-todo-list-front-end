@@ -30,9 +30,9 @@ describe('NetworkActiveComponent', () => {
     fixture.detectChanges();
 
     const ne: HTMLElement = fixture.nativeElement;
-    const loader = ne.querySelector('.lds-roller');
+    const loader = ne.querySelector('.lds-dual-ring');
 
-    expect(loader).toBeTruthy();
+    expect(window.getComputedStyle(loader).getPropertyValue('opacity')).toEqual('1');
   });
 
   it('does not show the loader when the network is inactive', () => {
@@ -42,8 +42,8 @@ describe('NetworkActiveComponent', () => {
     fixture.detectChanges();
 
     const ne: HTMLElement = fixture.nativeElement;
-    const loader = ne.querySelector('.lds-roller');
+    const loader = ne.querySelector('.lds-dual-ring');
 
-    expect(loader).toBeFalsy();
+    expect(window.getComputedStyle(loader).getPropertyValue('opacity')).toEqual('0');
   });
 });

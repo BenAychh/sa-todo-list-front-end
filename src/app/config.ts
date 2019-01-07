@@ -4,7 +4,7 @@ class Config {
     if (window.location.hostname === 'localhost') {
       apiUrl = handleLocalHost();
     } else if (window.location.hostname === 'sa-todo-list.firebaseapp.com') {
-      apiUrl = 'https://todoapi.benaychh.io/v1';
+      apiUrl = 'https://todoapi.benaychh.io/v1/';
     }
     return apiUrl;
   }
@@ -15,6 +15,7 @@ function handleLocalHost() {
     return 'http://localhost:8001/v1/';
   }
   return 'http://localhost:8000/v1/';
+  // return 'https://todoapi.benaychh.io/v1/';
 }
 
 export const config = new Config();
