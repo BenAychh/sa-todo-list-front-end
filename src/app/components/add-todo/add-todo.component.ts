@@ -10,9 +10,9 @@ import { TodoService } from '../../services/todo.service';
 })
 export class AddTodoComponent implements OnInit {
   @ViewChild('input') input: ElementRef;
-
   TODO_MODAL_NAME = 'NEW_TODO';
   newDescription = '';
+
   constructor(private todoService: TodoService, public ngxSmartModalService: NgxSmartModalService) {}
 
   ngOnInit() {}

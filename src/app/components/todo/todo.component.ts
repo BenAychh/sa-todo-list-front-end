@@ -14,12 +14,10 @@ import { UiService } from '../../services/ui.service';
 })
 export class TodoComponent implements OnInit {
   @ViewChild('input') input: ElementRef;
-  newDescription: string;
+  @Input() todo: ITodo;
+
   ui$: Observable<IUserInterface>;
-
-  @Input()
-  todo: ITodo;
-
+  newDescription: string;
   showActions = false;
 
   constructor(
