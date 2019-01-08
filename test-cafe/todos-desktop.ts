@@ -73,6 +73,7 @@ test('Can display only the incomplete todos', async (t) => {
   await addTodo(t, 'new todo two');
   await promiseSleep(500);
   await addTodo(t, 'new todo three');
+  await promiseSleep(500);
   await toggleTodoComplete(t, 1);
   await toggleTodoComplete(t, 2);
 
