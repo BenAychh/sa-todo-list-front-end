@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { AppComponent } from './app.component';
 import { components } from './components';
@@ -14,7 +15,7 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent, ...components],
-      imports: [HttpClientModule, NgxSmartModalModule.forRoot(), FormsModule],
+      imports: [HttpClientModule, NgxSmartModalModule.forRoot(), FormsModule, DeviceDetectorModule.forRoot()],
       providers: [mockBackendForTestingProvider],
     }).compileComponents();
     fixture = TestBed.createComponent(AppComponent);
