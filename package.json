@@ -9,6 +9,7 @@
     "test": "ng test --codeCoverage",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadless --codeCoverage --progress=false",
     "lint": "ng lint --type-check",
+    "dc:up": "docker-compose build && docker-compose up",
     "e2e": "testcafe firefox ./test-cafe/",
     "e2e:dc": "TODO_BASE_URL=http://localhost:4201 testcafe firefox ./test-cafe/",
     "format:fix": "pretty-quick --staged",
