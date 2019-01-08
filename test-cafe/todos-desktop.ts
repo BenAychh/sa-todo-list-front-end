@@ -18,7 +18,7 @@ todoWorkflow.beforeEach(async (t) => {
     }
   }
 
-  await t.resizeWindow(1366, 768);
+  await t.resizeWindow(1100, 600);
 });
 
 test('Can add todos', async (t) => {
