@@ -52,7 +52,7 @@ app-todos {
   background-color: $light;
   grid-column: left / right;
   grid-row: content / span 1;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 

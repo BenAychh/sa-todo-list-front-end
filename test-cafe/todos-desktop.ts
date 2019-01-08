@@ -48,8 +48,8 @@ test('Can mark todos as complete', async (t) => {
 
 test('Can edit todos', async (t) => {
   await addTodo(t, 'new todo one');
-  const newTodoDescription = 'new todo one description';
-  const editedTodo = await editTodo(t, 0, 'new todo one description');
+  const newTodoDescription = `new todo one'; drop table todos`;
+  const editedTodo = await editTodo(t, 0, newTodoDescription);
   const editedDescription = await editedTodo.find(selectors.todoDescription);
   await t.expect(await editedDescription.innerText).eql(newTodoDescription, 'todo description was edited');
 });
