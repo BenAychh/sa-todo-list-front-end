@@ -1,4 +1,4 @@
-<div class="container" [class.left-handed]="(ui$ | async).leftHanded">
+<div class="container" [class.left-handed]="(ui$ | async).leftHanded" [class.iphone]="useIphoneClass()">
   <header>
     {{ headerText | async }}
     <app-network-active></app-network-active>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { IUserInterface } from './models/ui';
@@ -23,9 +24,13 @@ export class AppComponent implements OnInit {
     );
   }
 
-  constructor(private uiService: UiService) {}
+  constructor(private uiService: UiService, private deviceService: DeviceDetectorService) {}
 
   ngOnInit() {
     this.ui$ = this.uiService.ui$;
+  }
+
+  useIphoneClass() {
+    return this.deviceService.browser === 'Safari' && this.deviceService.isMobile();
   }
 }

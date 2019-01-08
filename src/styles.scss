@@ -17,6 +17,10 @@ body {
   margin: 0 auto;
   box-sizing: border-box;
 
+  &.iphone {
+    height: calc(100vh - 70px);
+  }
+
   &.left-handed {
     .help {
       order: 3;
