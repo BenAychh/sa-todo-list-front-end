@@ -26,7 +26,7 @@ Run `yarn e2e` to run the [TestCafe](https://github.com/DevExpress/testcafe) e2e
 
 Alternatively, if you have the app up from using the `yarn dc:up` command, you can run `yarn e2e:dc` to run the tests agianst the docker-compose version
 
-I chose to write my e2e tests in TestCafe because it is an amazing replacement for selenium and was designed for SPAs in general. I also really love [cypress](https://www.cypress.io/) but that only supports Chrome so I have been slowly moving over to TestCafe. That being said, I did notice some resizing bugs in TestCafe so neither of them are perfect yet. That being said, I have written e2e tests in Selenium and some of it's children like Protractor and even with the bugs in TestCafe and the limitations in Cypress they are still so much better and faster than Selenium for SPAs.
+I chose to write my e2e tests in TestCafe because it is an amazing replacement for selenium and was designed for SPAs in general. I also really love [cypress](https://www.cypress.io/) but that only supports Chrome so I have been slowly moving over to TestCafe. I did notice some linux resizing bugs in TestCafe so neither of them are perfect yet. That being said, I have written e2e tests in Selenium and some of it's children like Protractor and even with the bugs in TestCafe and the limitations in Cypress they are still so much better and faster than Selenium for SPAs.
 
 ## Git Hooks
 
