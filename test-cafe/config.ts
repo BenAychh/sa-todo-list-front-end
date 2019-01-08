@@ -1,5 +1,5 @@
 class Config {
-  private defaultUrl = 'http://localhost:4201';
+  private defaultUrl = 'http://localhost:4200';
 
   private _baseUrl: string;
 

@@ -10,7 +10,7 @@
     "test:ci": "ng test --watch=false --browsers=ChromeHeadless --codeCoverage --progress=false",
     "lint": "ng lint --type-check",
     "e2e": "testcafe firefox ./test-cafe/",
-    "e2e:ci": "testcafe 'chromium --no-sandbox' ./test-cafe/ --baseUrl=http://localhost:4201/",
+    "e2e:dc": "TODO_BASE_URL=http://localhost:4201 testcafe firefox ./test-cafe/",
     "format:fix": "pretty-quick --staged",
     "checkCompile": "tsc --noEmit --skipLibCheck"
   },
