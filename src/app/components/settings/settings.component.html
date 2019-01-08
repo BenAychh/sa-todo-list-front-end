@@ -2,13 +2,13 @@
 
 <ngx-smart-modal [identifier]="SETTINGS_MODAL_NAME" customClass="modal-customized">
   <div class="modal-settings">
-    <label class="switch">
+    <label class="switch show-completed-toggle">
       <input type="checkbox" [checked]="(ui$ | async).showCompleted" (change)="updateShowCompleted($event)" />
       <span class="slider round"></span>
     </label>
     <label>Show Completed</label>
 
-    <label class="switch">
+    <label class="switch left-handed-toggle">
       <input type="checkbox" [checked]="(ui$ | async).leftHanded" (change)="updateLeftHanded($event)" />
       <span class="slider round"></span>
     </label>

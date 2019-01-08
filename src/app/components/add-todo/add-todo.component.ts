@@ -28,6 +28,7 @@ export class AddTodoComponent implements OnInit {
 
   addNewTodo() {
     this.todoService.createTodo(this.newDescription);
+    this.newDescription = '';
     this.ngxSmartModalService.get(this.TODO_MODAL_NAME).close();
   }
 

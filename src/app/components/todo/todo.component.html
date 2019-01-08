@@ -12,6 +12,8 @@
 </div>
 
 <ngx-smart-modal identifier="edit_{{ todo.id }}" customClass="modal-customized">
-  <input [(ngModel)]="newDescription" #input (keydown)="onKeydown($event)" />
-  <button class="action" (click)="commitChange()"><i class="fa fa-2x fa-save"></i> <span>Update</span></button>
+  <input class="updated-description" [(ngModel)]="newDescription" #input (keydown)="onKeydown($event)" />
+  <button class="action update-todo" (click)="commitChange()">
+    <i class="fa fa-2x fa-save"></i> <span>Update</span>
+  </button>
 </ngx-smart-modal>
